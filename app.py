@@ -21,7 +21,8 @@ from scipy.io import wavfile
 
 
 def _normalize_16_bit(audio_data: np.ndarray) -> np.ndarray:
-    """Not sure why, but with soundfile, input data should be normalized for 16 bitbefore Streamlit can play it. Not needed after Pedalboard render.
+    """Not sure why, but with soundfile, input data should be normalized for 16 bitbefore Streamlit can play it.
+    Not needed after Pedalboard render.
     * https://stackoverflow.com/questions/57925304/how-to-normalize-a-raw-audio-file-with-python
     * https://github.com/jkanner/streamlit-audio/blob/main/helper.py
     """
@@ -192,11 +193,11 @@ Testing [Spotify Pedalboard](https://github.com/spotify/pedalboard).
     effected = board(audio)
     st.pyplot(_plot_waveform(effected, sample_rate))
     st.audio(_audio_to_virtualfile(effected))
+
     st.download_button(
-        "Dowload effected",
+        "Download output wave",
         _audio_to_virtualfile(effected),
         file_name="output.wav",
-        mime="audio/wave",
     )
 
 
